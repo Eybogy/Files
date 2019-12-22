@@ -6,8 +6,7 @@ import java.nio.file.Paths;
 /*Программа, вычисляющая число слов в произвольном текстовом файле, каждое из которых содержит не менее трех символов 'r'.*/
 
 public class Two {
-    int all = 0;
-    int allR = 0;
+    int all, allR = 0;
     String name = "E:\\Other\\Two_number.txt";
     Path file = Paths.get(name);        // Создаю объект Path
     byte[] str = Files.readAllBytes(file);  // Чтения файла
