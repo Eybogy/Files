@@ -9,11 +9,17 @@ public class Two {
     int all, allR = 0;
     String name = "E:\\Other\\Two_number.txt";
     Path file = Paths.get(name);        // Создаю объект Path
-    byte[] str = Files.readAllBytes(file);  // Чтения файла
-    String text = new String(str);      // Преобразую в текст
+    byte[] str = Files.readAllBytes(file);  // Чтение файла
+    String text = new String(str) + " ";      // Преобразую в текст
+
+    //
 
     public Two() throws IOException {
+        text = text.replaceAll("\r\n", " ");        // Заменяю переход на новую строку пробелом
+        //System.out.println(text);
         for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) != '\n'){
+
             if (text.charAt(i) == 'r') {
                 allR++;
             } else if (text.charAt(i) == ' ') {
@@ -24,7 +30,7 @@ public class Two {
                     allR = 0;
                 }
             }
-        } if (all != 0) {
+        } } if (all != 0) {
             System.out.println("количество слов в файле содержащих не менее трёх символов 'r': " + all);
         } else {
             System.out.println("В файле нет слов в которых не менее трёх символов 'r'");
